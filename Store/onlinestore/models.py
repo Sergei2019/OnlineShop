@@ -37,6 +37,7 @@ class Product(models.Model):
     sizes = models.CharField(default='XS',
                              max_length=2,
                              choices=SIZE)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
