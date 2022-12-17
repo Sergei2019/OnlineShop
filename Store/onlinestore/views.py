@@ -1,19 +1,16 @@
 from django.shortcuts import render
 
 
-def store_view(request):
+def store(request):
     context = {}
-    return render(request, 'store.html')
+    return render(request, 'store.html', context)
 
-def cart_view(request):
+
+def cart(request):
     context = {}
-    return render(request, 'cart.html')
+    return render(request, 'cart.html', context)
 
 
-def main_view(request):
+def checkout(request):
     context = {}
-    return render(request, 'main.html')
-
-
-
-
+    return render(request, 'checkout.html', context)
