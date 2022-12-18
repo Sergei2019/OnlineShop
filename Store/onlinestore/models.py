@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from multiselectfield import MultiSelectField
+
 
 class Customer(models.Model):
     user = models.OneToOneField(User, 
                                 on_delete=models.CASCADE,
+                                related_name='customer',
                                 null=True,
                                 blank=True)
     name = models.CharField(max_length=200, null=True)
@@ -34,8 +37,8 @@ class Product(models.Model):
     colors = models.CharField(default='BLACK',
                               max_length=20,
                               choices=COLOR)
-    sizes = models.CharField(default='XS',
-                             max_length=2,
+    sizes = MultiSelectField(default='XS',
+                             max_length=10,
                              choices=SIZE)
     image = models.ImageField(null=True, blank=True)
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product, Order, OrderItem, ShippingAdress
+from .models import Customer, Product, Order, OrderItem, ShippingAdress
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -50,7 +50,7 @@ class ShippingAdressAdmin(admin.ModelAdmin):
     list_filter = ('customer', 'order', 'state', 'city', 'adress', 'date_added')
     empty_value_display = '-пусто-'
 
-
+admin.site.register(Customer)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem, OrderItemAdmin)
